@@ -186,9 +186,9 @@ app.post("/signup", async (req, res) => {
 
 - now check with postman post request and check in atlas database. (it's working :P)
 
-# Sign in reqest
+# Sign in request
 
-- refer npm bcrypt documentation for comparing hased password
+- refer npm bcrypt documentation for comparing hashed password
 
 ```java
 app.post("/signin", async (req, res) => {
@@ -212,7 +212,7 @@ app.post("/signin", async (req, res) => {
 });
 ```
 
-# jwt
+# JWT (JSON Web Token)
 
 - Now the only way is to check wether user loged in or not is "token" using jwt "JSON Web Token"
 - const jwt = require ("jsonwebtoken");
@@ -242,7 +242,7 @@ app.post("/signin", async (req, res) => {
 });
 ```
 
-- update .env file => which we will not push in github
+- update .env file => which we will not push on github
 
 ```java
 MONGO_URL = mongodb+srv://divyam:admin@cluster0.wpxdpyd.mongodb.net/blog
