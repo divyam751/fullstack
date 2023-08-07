@@ -1,2 +1,37 @@
-node_modules
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .env file (containing sensitive data)
 .env
+
+# Ignore log files
+*.log
+
+# Ignore compiled files and build output
+build/
+dist/
+out/
+
+# Ignore temporary files
+*.tmp
+*.temp
+*.bak
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ignore dependencies lock files
+package-lock.json
+yarn.lock
+
+# Ignore user-specific settings
+*.iml
+*.DS_Store
+Thumbs.db
