@@ -248,3 +248,11 @@ app.post("/signin", async (req, res) => {
 MONGO_URL = mongodb+srv://divyam:admin@cluster0.wpxdpyd.mongodb.net/blog
 SCREAT_KEY = divyam123dc
 ```
+
+# CRUD operation using routes endpoint
+
+- GET => "/blogs"
+- POST=> "/blogs/create"
+- PUT => "/blogs/edit/:blogID"
+- DELETE => "/blog/delete/:blogID"
+
