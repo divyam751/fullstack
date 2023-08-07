@@ -5,6 +5,8 @@ require("dotenv").config();
 
 const connection = require("./config/db");
 const { UserModel } = require("./models/User.model");
+const { blogRouter } = require("./routes/blogs.routes");
+const { authentication } = require("./middlewares/authentication");
 
 const app = express();
 app.use(express.json());
@@ -45,7 +47,7 @@ app.post("/signin", async (req, res) => {
     const hashed_password = user.password;
     bcrypt.compare(password, hashed_password, function (err, result) {
       if (result) {
-        let token = jwt.sign({ user_id: user._id }, process.env.SCREAT_KEY);
+        let token = jwt.sign({ user_id: user._id }, process.env.SECRET_KEY);
         res.send({ msg: "Login successful", token: token });
       } else {
         res.send("Login failed , invalid credentials");
@@ -53,6 +55,8 @@ app.post("/signin", async (req, res) => {
     });
   }
 });
+
+app.use("/blogs", authentication, blogRouter);
 
 app.listen(8000, async () => {
   try {

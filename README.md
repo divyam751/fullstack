@@ -256,3 +256,72 @@ SCREAT_KEY = divyam123dc
 - PUT => "/blogs/edit/:blogID"
 - DELETE => "/blog/delete/:blogID"
 
+# =====================================
+
+- create folder inside backend routes --> blogs.routes.js
+
+```java
+const { Router } = require("express");
+
+const blogRouter = Router();
+
+blogRouter.get("/", (req, res) => {
+  res.send("blogs");
+});
+blogRouter.post("/create", (req, res) => {
+  res.send("blog created");
+});
+blogRouter.put("/edit/:blogID", (req, res) => {
+  res.send("blog edited");
+});
+blogRouter.delete("/delete/:blogID", (req, res) => {
+  res.send("blog deleted");
+});
+
+module.exports = { blogRouter };
+
+```
+
+- add inside index.js
+
+```java
+const { blogRouter } = require("./routes/blogs.routes");
+```
+
+```java
+app.use("/blogs", blogRouter);
+```
+
+# CRUD Logic
+
+- now we need to write logic for CRUD operations
+
+- need blog model for Create new Blog
+
+- Blog.model.js inside models folder
+
+```java
+const mongoose = require("mongoose");
+
+const blogSchema = new mongoose.Schema(
+  {
+    title: { type: String, require: true },
+    description: { type: String, require: true },
+    author_name: { type: String },
+    author_email: { type: String },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const BlogModel = mongoose.model("blog", blogSchema);
+
+module.exports = { BlogModel };
+
+```
+
+- create and write authentication middleware 
+
+
+1:32 min
